@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MKEL3 Properties — Appointment</title>
+	<link rel="stylesheet" href="../css/styles.css">
+	<style>
+		.form-field {
+			background: var(--accent);
+			padding: 18px;
+			border-radius: 4px;
+			margin-bottom: 18px;
+			font-weight: 600;
+		}
+
+		.form-field input,
+		.form-field textarea {
+			width: 100%;
+			padding: 12px;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			font-family: Arial, sans-serif;
+			box-sizing: border-box;
+		}
+
+		.form-field label {
+			display: block;
+			font-weight: 700;
+			margin-bottom: 8px;
+			color: var(--text);
+		}
+
+		.property-grid {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 18px;
+			margin-top: 18px;
+			margin-bottom: 30px;
+		}
+
+		.property-card {
+			text-align: center;
+			cursor: pointer;
+			transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+			position: relative;
+		}
+
+		.property-card input[type="radio"] {
+			position: absolute;
+			opacity: 0;
+		}
+
+		.property-card input[type="radio"]:checked + .card-content {
+			box-shadow: 0 0 0 8px #7bb26b, 4px 6px 18px rgba(0,0,0,.35);
+			transform: scale(1.05);
+		}
+
+		.property-card input[type="radio"]:checked + .card-content img {
+			filter: brightness(1.3);
+		}
+
+		.property-card .card-content {
+			transition: box-shadow 0.2s, filter 0.2s, transform 0.2s;
+		}
+
+		.property-card img {
+			width: 100%;
+			height: 180px;
+			object-fit: cover;
+			border-radius: 4px;
+			box-shadow: 4px 6px 18px rgba(0,0,0,.35);
+			display: block;
+		}
+
+		.property-card .label {
+			color: #fff;
+			font-weight: 700;
+			margin-top: 12px;
+			font-style: italic;
+		}
+
+		.confirm-btn {
+			background: var(--accent);
+			color: var(--text);
+			padding: 14px 32px;
+			border-radius: 30px;
+			border: none;
+			font-weight: 700;
+			cursor: pointer;
+			font-size: 16px;
+		}
+
+		.confirm-btn:hover {
+			opacity: 0.9;
+		}
+
+		.confirm-btn:disabled {
+			opacity: 0.6;
+			cursor: not-allowed;
+		}
+
+		.success-message {
+			display: none;
+			background: #4caf50;
+			color: white;
+			padding: 20px;
+			border-radius: 4px;
+			text-align: center;
+			font-weight: 700;
+			font-size: 18px;
+			margin-bottom: 20px;
+			animation: slideIn 0.3s ease-in;
+		}
+
+		.success-message.show {
+			display: block;
+		}
+
+		@keyframes slideIn {
+			from {
+				opacity: 0;
+				transform: translateY(-20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@media (max-width: 900px) {
+			.property-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<nav class="nav">
+			<a class="nav-link" href="home.html">HOME</a>
+			<a class="nav-link" href="properties.html">PROPERTIES</a>
+			<a class="nav-link" href="inquiries.html">INQUIRIES</a>
+			<a class="nav-link active" href="appointment.html">BOOK AN APPOINTMENT</a>
+			<a class="nav-link" href="about.html">ABOUT ME</a>
+		</nav>
+	</header>
+
+	<div class="page-wrap">
+		<aside class="sidebar">
+		</aside>
+
+		<main class="content">
+			<div id="successMessage" class="success-message">
+				✓ Appointment request sent successfully!
+			</div>
+
+			<form id="appointmentForm" onsubmit="handleSubmit(event)">
+				<h2 style="color: #fff; margin-bottom: 18px; font-weight: 700;">Book Your Appointment</h2>
+
+				<!-- Name Field -->
+				<div class="form-field">
+					<label for="name">Name:</label>
+					<input type="text" id="name" name="name" required placeholder="Enter your full name">
+				</div>
+
+				<!-- Contact Number Field -->
+				<div class="form-field">
+					<label for="contact">Contact Number:</label>
+					<input type="tel" id="contact" name="contact" required placeholder="Enter your contact number">
+				</div>
+
+				<!-- Email Field -->
+				<div class="form-field">
+					<label for="email">E-mail:</label>
+					<input type="email" id="email" name="email" required placeholder="Enter your email address">
+				</div>
+
+				<!-- Appointment Date Field -->
+				<div class="form-field">
+					<label for="date">Set Appointment Date:</label>
+					<input type="date" id="date" name="date" required>
+				</div>
+
+				<!-- Property Selection -->
+				<h2 style="color: #fff; margin-bottom: 18px; margin-top: 30px; font-weight: 700; font-style: italic;">Select Interested Property</h2>
+
+				<div class="property-grid">
+					<label class="property-card">
+						<input type="radio" name="property" value="houses" required>
+						<div class="card-content">
+							<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=400&q=60" alt="Houses" />
+							<div class="label">HOUSES</div>
+						</div>
+					</label>
+
+					<label class="property-card">
+						<input type="radio" name="property" value="vacant-lots" required>
+						<div class="card-content">
+							<img src="../images/propertiesImages/vacant1.jpg" alt="Vacant Lots" />
+							<div class="label">VACANT LOTS</div>
+						</div>
+					</label>
+
+					<label class="property-card">
+						<input type="radio" name="property" value="condominiums" required>
+						<div class="card-content">
+							<img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=400&q=60" alt="Condominiums" />
+							<div class="label">CONDOMINIUMS</div>
+						</div>
+					</label>
+				</div>
+
+				<button type="submit" class="confirm-btn">Confirm →</button>
+			</form>
+		</main>
+	</div>
+
+	<script>
+		function handleSubmit(event) {
+			event.preventDefault();
+			
+			// Get form data
+			const name = document.getElementById('name').value;
+			const contact = document.getElementById('contact').value;
+			const email = document.getElementById('email').value;
+			const date = document.getElementById('date').value;
+			const property = document.querySelector('input[name="property"]:checked').value;
+
+			// Show success message
+			const successMessage = document.getElementById('successMessage');
+			successMessage.classList.add('show');
+
+			// Optional: Reset form and hide message after 3 seconds
+			setTimeout(() => {
+				document.getElementById('appointmentForm').reset();
+				successMessage.classList.remove('show');
+			}, 3000);
+
+			// Log the appointment data (in a real app, this would be sent to a server)
+			console.log({
+				name: name,
+				contact: contact,
+				email: email,
+				date: date,
+				property: property,
+				timestamp: new Date()
+			});
+		}
+	</script>
+</body>
+</html>

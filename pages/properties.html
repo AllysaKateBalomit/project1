@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MKEL3 Properties — Properties</title>
+	<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+	<header class="site-header">
+		<nav class="nav">
+			<a class="nav-link" href="home.html">HOME</a>
+			<a class="nav-link active" href="properties.html">PROPERTIES</a>
+			<a class="nav-link" href="inquiries.html">INQUIRIES</a>
+			<a class="nav-link" href="appointment.html">BOOK AN APPOINTMENT</a>
+			<a class="nav-link" href="about.html">ABOUT ME</a>
+		</nav>
+	</header>
+
+	<div class="page-wrap">
+		<aside class="sidebar">
+			<h3 style="color: #fff; margin-top: 0; font-style: italic;">Filter by Type</h3>
+			
+			<ul class="categories">
+				<li class="cat-item active" data-filter="all">All</li>
+				<li class="cat-item" data-filter="condominiums">Condominiums</li>
+				<li class="cat-item" data-filter="houses">Houses</li>
+				<li class="cat-item" data-filter="vacant-lots">Vacant Lots</li>
+			</ul>
+
+		</aside>
+
+		<main class="content">
+			<section class="carousel-section">
+				<button class="carousel-btn carousel-prev" id="prevBtn">❮</button>
+				
+				<div class="carousel-container">
+					<div class="carousel-wrapper">
+						<!-- Condominiums -->
+						<div class="property-item" data-category="condominiums">
+							<img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=60" alt="Condominium 1" />
+							<div class="property-label">CONDOMINIUM 1</div>
+						</div>
+						<div class="property-item" data-category="condominiums">
+							<img src="https://images.unsplash.com/photo-1572120360610-d971b9b2c6d7?w=800&q=60" alt="Condominium 2" />
+							<div class="property-label">CONDOMINIUM 2</div>
+						</div>
+						<div class="property-item" data-category="condominiums">
+							<img src="https://images.unsplash.com/photo-1572120360610-d971b9b2c6d7?w=800&q=60" alt="Condominium 3" />
+							<div class="property-label">CONDOMINIUM 3</div>
+						</div>
+						<div class="property-item" data-category="condominiums">
+							<img src="https://images.unsplash.com/photo-1572120360610-d971b9b2c6d7?w=800&q=60" alt="Condominium 4" />
+							<div class="property-label">CONDOMINIUM 4</div>
+						</div>
+						<div class="property-item" data-category="condominiums">
+							<img src="https://images.unsplash.com/photo-1572120360610-d971b9b2c6d7?w=800&q=60" alt="Condominium 5" />
+							<div class="property-label">CONDOMINIUM 5</div>
+						</div>
+						<!-- Houses -->
+						<div class="property-item" data-category="houses">
+							<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=60" alt="House 1" />
+							<div class="property-label">HOUSE 1</div>
+						</div>
+						<div class="property-item" data-category="houses">
+							<img src="https://images.unsplash.com/photo-1560184897-6c3d8fc9f4b0?w=800&q=60" alt="House 2" />
+							<div class="property-label">HOUSE 2</div>
+						</div>
+						<div class="property-item" data-category="houses">
+							<img src="https://images.unsplash.com/photo-1560184897-6c3d8fc9f4b0?w=800&q=60" alt="House 3" />
+							<div class="property-label">HOUSE 3</div>
+						</div>
+						<div class="property-item" data-category="houses">
+							<img src="https://images.unsplash.com/photo-1560184897-6c3d8fc9f4b0?w=800&q=60" alt="House 4" />
+							<div class="property-label">HOUSE 4</div>
+						</div>
+						<div class="property-item" data-category="houses">
+							<img src="https://images.unsplash.com/photo-1560184897-6c3d8fc9f4b0?w=800&q=60" alt="House 5" />
+							<div class="property-label">HOUSE 5</div>
+						</div>
+						<!-- Vacant Lots -->
+						<div class="property-item" data-category="vacant-lots">
+							<img src="https://images.unsplash.com/photo-1505691723518-36a1b5f4f9c3?w=800&q=60" alt="Vacant Lot 1" />
+							<div class="property-label">VACANT LOT 1</div>
+						</div>
+						<div class="property-item" data-category="vacant-lots">
+							<img src="https://images.unsplash.com/photo-1600909396428-8ef5b8b480d4?w=800&q=60" alt="Vacant Lot 2" />
+							<div class="property-label">VACANT LOT 2</div>
+						</div>
+						<div class="property-item" data-category="vacant-lots">
+							<img src="https://images.unsplash.com/photo-1600909396428-8ef5b8b480d4?w=800&q=60" alt="Vacant Lot 3" />
+							<div class="property-label">VACANT LOT 3</div>
+						</div>
+						<div class="property-item" data-category="vacant-lots">
+							<img src="https://images.unsplash.com/photo-1600909396428-8ef5b8b480d4?w=800&q=60" alt="Vacant Lot 4" />
+							<div class="property-label">VACANT LOT 4</div>
+						</div>
+						<div class="property-item" data-category="vacant-lots">
+							<img src="https://images.unsplash.com/photo-1600909396428-8ef5b8b480d4?w=800&q=60" alt="Vacant Lot 5" />
+							<div class="property-label">VACANT LOT 5</div>
+						</div>
+					</div>
+				</div>
+
+				<button class="carousel-btn carousel-next" id="nextBtn">❯</button>
+			</section>
+
+			<section class="property-meta">
+				<div class="address" id="propertyAddress">IF INTERESTED PLEASE PRESS THE INQUIRE BUTTON</div>
+			</section>
+
+			<a class="inquire-btn" href="inquiries.html?property=Property%20Address">Inquire →</a>
+		</main>
+	</div>
+
+
+	<script src="../js/properties.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>MKEL3 Properties — About</title>
+	<link rel="stylesheet" href="../css/styles.css">
+	<style>
+		.about-container {
+			display: grid;
+			grid-template-columns: 1fr 1.5fr;
+			gap: 30px;
+			align-items: center;
+		}
+
+		.about-image {
+			position: relative;
+		}
+
+		.about-image img {
+			width: 100%;
+			height: 400px;
+			object-fit: cover;
+			border-radius: 4px;
+			box-shadow: 6px 8px 24px rgba(0,0,0,.35);
+		}
+
+		.about-content {
+			color: #fff;
+		}
+
+		.about-content h2 {
+			font-size: 32px;
+			font-weight: 700;
+			margin: 0 0 20px 0;
+		}
+
+		.about-text {
+			background: var(--accent);
+			padding: 24px;
+			border-radius: 4px;
+			color: var(--text);
+			line-height: 1.6;
+		}
+
+		@media (max-width: 900px) {
+			.about-container {
+				grid-template-columns: 1fr;
+			}
+
+			.about-content h2 {
+				font-size: 24px;
+			}
+		}
+	</style>
+</head>
+<body>
+	<header class="site-header">
+		<nav class="nav">
+			<a class="nav-link" href="home.html">HOME</a>
+			<a class="nav-link" href="properties.html">PROPERTIES</a>
+			<a class="nav-link" href="inquiries.html">INQUIRIES</a>
+			<a class="nav-link" href="appointment.html">BOOK AN APPOINTMENT</a>
+			<a class="nav-link active" href="about.html">ABOUT ME</a>
+		</nav>
+	</header>
+
+	<div class="page-wrap">
+		<aside class="sidebar">
+
+		</aside>
+
+		<main class="content">
+			<section class="about-container">
+				<!-- Profile Image -->
+				<div class="about-image">
+					<img src="../images/profilePicture/Pic2.jpg" alt="Charity Abellar" />
+				</div>
+
+				<!-- About Content -->
+				<div class="about-content">
+					<h2>About Me</h2>
+					<div class="about-text">
+						<p>I'm Charity Abellar, a licensed Real Estate Broker dedicated to understanding your unique property aspirations and making them a reality. With over a decade of experience (licensed since 2011), I specialize in real estate project sales, collaborating with a diverse range of developers in Negros Occidental.</p>
+						
+						<p style="margin-top: 16px;">Whether you're seeking the excitement of a new development or the charm of a resale property, I offer expert guidance tailored to your individual needs. I understand that buying or selling a property is a significant life decision, and I'm committed to providing a seamless and stress-free experience, handling everything from initial consultation to title transfers and documentation. Let me help you navigate the real estate landscape with confidence and achieve your property dreams.</p>
+
+					</div>
+				</div>
+			</section>
+		</main>
+	</div>
+
+	<script src="../js/properties.js"></script>
+</body>
+</html>
