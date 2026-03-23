@@ -5,20 +5,140 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MKEL3 Properties</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Modal Styles */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #eeddde;
+      padding: 40px;
+      border-radius: 8px;
+      max-width: 800px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      background: none;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      color: #3b3b3b;
+      font-weight: bold;
+      z-index: 1001;
+    }
+
+    .modal-close:hover {
+      color: #5b8c56;
+    }
+
+    .modal-content h1 {
+      margin: 0 0 20px 0;
+      font-size: 32px;
+      color: #3b3b3b;
+      border-bottom: 2px solid #5b8c56;
+      padding-bottom: 10px;
+    }
+
+    .modal-content h2 {
+      font-size: 18px;
+      color: #5b8c56;
+      margin: 20px 0 10px 0;
+      font-weight: 700;
+    }
+
+    .modal-content p {
+      line-height: 1.6;
+      color: #3b3b3b;
+      margin: 10px 0;
+    }
+
+    .modal-content ul, .modal-content ol {
+      color: #3b3b3b;
+      padding-left: 25px;
+      margin: 10px 0;
+    }
+
+    .modal-content li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 900px) {
+      .modal-content {
+        padding: 25px;
+      }
+
+      .modal-content h1 {
+        font-size: 24px;
+      }
+
+      .modal-content h2 {
+        font-size: 16px;
+        margin: 15px 0 8px 0;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .modal-content {
+        padding: 15px;
+        max-height: 95vh;
+      }
+
+      .modal-content h1 {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+
+      .modal-content h2 {
+        font-size: 14px;
+        margin: 12px 0 6px 0;
+      }
+
+      .modal-content p {
+        font-size: 13px;
+      }
+
+      .modal-close {
+        font-size: 24px;
+        top: 10px;
+        right: 10px;
+      }
+    }
+  </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
 
 <!-- Navbar -->
-<nav class="bg-[#e9e3dc] shadow p-5 flex justify-center gap-16 font-semibold tracking-wide">
-  <a href="home.html" class="hover:underline">HOME</a>
-  <a href="properties.html">PROPERTIES</a>
-  <a href="inquiries.html">INQUIRIES</a>
-  <a href="appointment.html">BOOK AN APPOINTMENT</a>
-  <a href="about.html">ABOUT ME</a>
+<nav class="bg-[#e9e3dc] shadow py-3 px-4 flex justify-center flex-wrap gap-3 md:gap-8 font-semibold tracking-wide text-xs md:text-sm">
+  <a href="home.html" class="hover:underline whitespace-nowrap">HOME</a>
+  <a href="properties.html" class="hover:underline whitespace-nowrap">PROPERTIES</a>
+  <a href="inquiries.html" class="hover:underline whitespace-nowrap">INQUIRIES</a>
+  <a href="appointment.html" class="hover:underline whitespace-nowrap">BOOK</a>
+  <a href="about.html" class="hover:underline whitespace-nowrap">ABOUT</a>
 </nav>
 
 <!-- Hero Section -->
-<section id="home" class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+<section id="home" class="relative h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
   
   <!-- Background Image -->
   <div class="absolute inset-0">
@@ -27,28 +147,175 @@
   </div>
 
   <!-- Content -->
-  <div class="relative z-10 text-center text-white max-w-xl">
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">Charity Abellar</h1>
-    <p class="uppercase tracking-widest mb-6">Real Estate Broker</p>
+  <div class="relative z-10 text-center text-white max-w-xl px-4">
+    <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-4">Charity Abellar</h1>
+    <p class="uppercase tracking-widest text-xs sm:text-sm md:text-base mb-4 md:mb-6">Real Estate Broker</p>
 
-    <button class="bg-[#e9e3dc] text-gray-800 px-8 py-3 rounded-full font-semibold shadow hover:scale-105 transition">
-      Browse Properties →
+    <button class="bg-[#e9e3dc] text-gray-800 px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold shadow hover:scale-105 transition text-xs sm:text-sm md:text-base">
+       <a href="properties.html">Browse Properties →</a>
     </button>
 
+    <p class="mt-4 md:mt-6 text-xs md:text-sm opacity-80">PRC Reg No. 0007192</p>
   </div>
 
-  <!-- Profile Card (Left Side) -->
-  <div class="absolute left-10 top-85 hidden md:block " >
-    <img src="../images/profilePicture/Pic1.png" class="w-150 h-full object-cover rounded-lg" />
+  <!-- Profile Card (Left Side) - Hidden on Mobile -->
+  <div class="absolute left-2 md:left-10 top-1/2 md:top-auto md:bottom-0 hidden lg:block transform -translate-y-1/2 md:translate-y-0" >
+    <img src="../images/profilePicture/Pic1.png" class="w-44 md:w-96 h-auto object-cover rounded-lg shadow-lg" />
   </div>
 
 </section>
 
 
 <!-- Footer -->
-<footer class="bg-gray-800 text-white text-center p-4 mt-8">
-  <p>Contact: +63 912 345 6789 | emailhere@gmail.com</p>
+<footer class="bg-gray-800 text-white text-center p-6 mt-8">
+  <p class="mb-3">Contact: +63 912 345 6789 | emailhere@gmail.com</p>
+  <div class="flex justify-center gap-6 flex-wrap text-sm">
+    <button onclick="openModal('terms')" class="text-blue-400 hover:text-blue-300 underline cursor-pointer">Terms & Conditions</button>
+    <span class="text-gray-500">|</span>
+    <button onclick="openModal('privacy')" class="text-blue-400 hover:text-blue-300 underline cursor-pointer">Privacy Policy</button>
+  </div>
 </footer>
 
-</body>
-</html>
+<!-- Terms & Conditions Modal -->
+<div id="termsModal" class="modal-overlay" onclick="closeModal(event, 'terms')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(null, 'terms')">×</button>
+    <h1>Terms & Conditions</h1>
+    
+    <h2>1. Agreement Acceptance</h2>
+    <p>By accessing and using this website and engaging with Charity L. Abellar's real estate services, you agree to be bound by these Terms & Conditions. We reserve the right to modify these terms at any time without prior notice.</p>
+
+    <h2>2. Services Provided</h2>
+    <p>Charity L. Abellar is a licensed real estate broker (PRC License No. 0007192) providing property sales, marketing, consultation, and investment guidance services. All services are provided in accordance with Philippine real estate laws and regulations.</p>
+
+    <h2>3. Property Information</h2>
+    <p>While we strive to provide accurate property information, we do not guarantee the completeness or accuracy of all descriptions, images, or specifications. All property details should be verified through site visits and legal documentation before making purchase decisions.</p>
+
+    <h2>4. Intellectual Property</h2>
+    <p>All content on this website, including text, images, logos, and designs, are the property of Charity L. Abellar or the property developers/owners. Unauthorized use, reproduction, or distribution of this content is strictly prohibited.</p>
+
+    <h2>5. Limitation of Liability</h2>
+    <p>We are not responsible for damages or losses resulting from incomplete information, user errors, system failures, or third-party actions. All property transactions carry inherent market and legal risks.</p>
+
+    <h2>6. Payment & Transaction Terms</h2>
+    <ul>
+      <li>Commission rates: Typically 3-5% of property price (subject to negotiation)</li>
+      <li>Payment methods: Bank transfer, check, or cash transactions (with proper documentation)</li>
+      <li>Reservation requirements: Earnest money deposit and signed reservation agreement required</li>
+      <li>Cancellation policies vary by property and developer terms</li>
+    </ul>
+
+    <h2>7. Client Responsibilities</h2>
+    <p>Clients agree to:</p>
+    <ul>
+      <li>Provide accurate personal and financial information</li>
+      <li>Conduct proper due diligence on all properties</li>
+      <li>Seek legal advice before signing any agreements</li>
+      <li>Comply with all local, provincial, and national laws</li>
+      <li>Fulfill financial obligations as agreed</li>
+    </ul>
+
+    <h2>8. Dispute Resolution</h2>
+    <p>Any disputes arising from our services shall be governed by Philippine law. Disputes will be resolved through negotiation, mediation, or arbitration as appropriate, before resorting to legal action.</p>
+
+    <h2>9. Contact Information</h2>
+    <p>For terms clarification or disputes, contact us at:</p>
+    <p><strong>Phone:</strong> 09398173858 | <strong>Email:</strong> charityabellar.broker@gmail.com</p>
+  </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div id="privacyModal" class="modal-overlay" onclick="closeModal(event, 'privacy')">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal(null, 'privacy')">×</button>
+    <h1>Privacy Policy</h1>
+    
+    <h2>1. Introduction</h2>
+    <p>Charity L. Abellar respects your privacy and is committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data in accordance with the Data Privacy Act of 2012.</p>
+
+    <h2>2. Information We Collect</h2>
+    <p>We collect information to provide you with better real estate services:</p>
+    <ul>
+      <li><strong>Contact Information:</strong> Name, phone number, email, address</li>
+      <li><strong>Property Preferences:</strong> Budget, location preferences, property type</li>
+      <li><strong>Financial Information:</strong> Income, credit history (with consent for financing)</li>
+      <li><strong>Transaction Data:</strong> Purchase history, appointment schedules</li>
+      <li><strong>Website Usage:</strong> IP address, browsing history, cookies</li>
+    </ul>
+
+    <h2>3. How We Use Your Information</h2>
+    <ul>
+      <li>To provide property matching and recommendations</li>
+      <li>To process appointments and transactions</li>
+      <li>To send property updates and market information</li>
+      <li>To fulfill legal and regulatory requirements</li>
+      <li>To improve our services and website experience</li>
+      <li>To communicate important updates and notifications</li>
+    </ul>
+
+    <h2>4. Data Protection Measures</h2>
+    <p>We implement industry-standard security measures including:</p>
+    <ul>
+      <li>Secure data storage and encryption</li>
+      <li>Access controls and authentication</li>
+      <li>Regular security audits and updates</li>
+      <li>Restricted employee access to sensitive data</li>
+      <li>Compliance with Data Privacy Act requirements</li>
+    </ul>
+
+    <h2>5. Information Sharing</h2>
+    <p>We may share your information with:</p>
+    <ul>
+      <li><strong>Property Developers:</strong> For property inquiries and transactions</li>
+      <li><strong>Financial Institutions:</strong> For loan processing (with consent)</li>
+      <li><strong>Legal Professionals:</strong> For transaction documentation</li>
+      <li><strong>Government Agencies:</strong> When required by law</li>
+    </ul>
+    <p>We do NOT sell your personal information to third parties for marketing purposes.</p>
+
+    <h2>6. Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access your personal information we hold</li>
+      <li>Correct inaccurate or incomplete data</li>
+      <li>Request deletion of your information (subject to legal requirements)</li>
+      <li>Opt-out of marketing communications</li>
+      <li>File complaints with the National Privacy Commission</li>
+    </ul>
+
+    <h2>7. Cookies & Tracking</h2>
+    <p>Our website uses cookies to enhance user experience. You can disable cookies in your browser settings. We do not use invasive tracking technologies.</p>
+
+    <h2>8. Third-Party Services</h2>
+    <p>This website may contain links to third-party websites. We are not responsible for their privacy practices. We recommend reviewing their privacy policies before sharing information.</p>
+
+    <h2>9. Data Retention</h2>
+    <p>We retain your information as long as necessary to provide services and comply with legal obligations. Upon request, we will delete your data within reasonable timeframes, except where legally required to retain it.</p>
+
+    <h2>10. Policy Updates</h2>
+    <p>We may update this Privacy Policy to reflect changes in our practices or legal requirements. Continued use of our services constitutes acceptance of updated policies.</p>
+
+    <h2>11. Contact Us</h2>
+    <p>For privacy concerns or data requests, please contact:</p>
+    <p><strong>Charity L. Abellar</strong><br><strong>Phone:</strong> 09398173858<br><strong>Email:</strong> charityabellar.broker@gmail.com</p>
+  </div>
+</div>
+
+<script>
+  function openModal(modalType) {
+    const modalId = modalType === 'terms' ? 'termsModal' : 'privacyModal';
+    document.getElementById(modalId).classList.add('show');
+  }
+
+  function closeModal(event, modalType) {
+    // If clicked on overlay (not on content), close the modal
+    if (event && event.target.id) {
+      const modalId = modalType === 'terms' ? 'termsModal' : 'privacyModal';
+      document.getElementById(modalId).classList.remove('show');
+    } else if (!event) {
+      // Clicked on close button
+      const modalId = modalType === 'terms' ? 'termsModal' : 'privacyModal';
+      document.getElementById(modalId).classList.remove('show');
+    }
+  }
+</script>

@@ -22,6 +22,7 @@
 			border-radius: 4px;
 			font-family: Arial, sans-serif;
 			box-sizing: border-box;
+			font-size: 14px;
 		}
 
 		.form-field label {
@@ -78,6 +79,7 @@
 			font-weight: 700;
 			margin-top: 12px;
 			font-style: italic;
+			font-size: 14px;
 		}
 
 		.confirm-btn {
@@ -89,6 +91,8 @@
 			font-weight: 700;
 			cursor: pointer;
 			font-size: 16px;
+			min-height: 48px;
+			width: 100%;
 		}
 
 		.confirm-btn:hover {
@@ -131,6 +135,63 @@
 		@media (max-width: 900px) {
 			.property-grid {
 				grid-template-columns: 1fr;
+				gap: 12px;
+			}
+
+			.property-card img {
+				height: 150px;
+			}
+
+			.form-field {
+				padding: 14px;
+				margin-bottom: 14px;
+			}
+
+			.confirm-btn {
+				padding: 12px 24px;
+				font-size: 14px;
+			}
+		}
+
+		@media (max-width: 600px) {
+			.property-grid {
+				grid-template-columns: 1fr;
+				gap: 10px;
+			}
+
+			.property-card img {
+				height: 120px;
+			}
+
+			.property-card .label {
+				font-size: 12px;
+				margin-top: 8px;
+			}
+
+			.form-field {
+				padding: 10px;
+				margin-bottom: 10px;
+				font-size: 13px;
+			}
+
+			.form-field input,
+			.form-field textarea {
+				padding: 10px;
+				font-size: 13px;
+			}
+
+			.form-field label {
+				font-size: 12px;
+				margin-bottom: 6px;
+			}
+
+			.confirm-btn {
+				padding: 12px 20px;
+				font-size: 13px;
+			}
+
+			h2 {
+				font-size: 16px !important;
 			}
 		}
 	</style>
@@ -148,6 +209,9 @@
 
 	<div class="page-wrap">
 		<aside class="sidebar">
+			<div class="logo">
+				<img src="../images/logo1.jpg" alt="Agent logo" />
+			</div>
 		</aside>
 
 		<main class="content">

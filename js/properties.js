@@ -1,10 +1,12 @@
-// Properties page carousel and filtering
+// Properties page carousel, filtering, and product detail view
 document.addEventListener('DOMContentLoaded', function(){
   const carouselWrapper = document.querySelector('.carousel-wrapper');
   const propertyItems = document.querySelectorAll('.property-item');
   const categoryFilters = document.querySelectorAll('.cat-item');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const productDetail = document.getElementById('productDetail');
+  const closeDetailBtn = document.getElementById('closeDetail');
   
   let currentIndex = 0;
   let allItems = Array.from(propertyItems);
@@ -49,9 +51,79 @@ document.addEventListener('DOMContentLoaded', function(){
     updateCarousel();
   });
 
+  // Click on property item to view details
+  propertyItems.forEach(item => {
+    item.addEventListener('click', function(e){
+      if(!this.classList.contains('hidden')){
+        showProductDetail(this);
+      }
+    });
+  });
+
+  // Close product detail
+  closeDetailBtn && closeDetailBtn.addEventListener('click', () => {
+    productDetail.classList.remove('show');
+    productDetail.classList.add('hidden');
+  });
+
+  // Close modal when clicking on the overlay (outside the modal)
+  productDetail && productDetail.addEventListener('click', (e) => {
+    if(e.target === productDetail){
+      productDetail.classList.remove('show');
+      productDetail.classList.add('hidden');
+    }
+  });
+
   function updateCarousel() {
     carouselWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
   }
+
+  function showProductDetail(item) {
+    const name = item.dataset.name;
+    const price = item.dataset.price;
+    const sku = item.dataset.sku;
+    const status = item.dataset.status;
+    const description = item.dataset.description;
+    const variations = item.dataset.variations.split('|');
+    const img = item.querySelector('img').src;
+
+    // Populate product detail
+    document.getElementById('productName').textContent = name;
+    document.getElementById('productPrice').textContent = '₱' + price;
+    document.getElementById('productSKU').textContent = sku;
+    
+    const statusEl = document.getElementById('productStatus');
+    statusEl.textContent = status;
+    statusEl.classList.remove('limited');
+    if(status.includes('Limited')) {
+      statusEl.classList.add('limited');
+    }
+
+    document.getElementById('productDescription').textContent = description;
+    document.getElementById('mainProductImg').src = img;
+
+    // Populate variations
+    const variationsList = document.getElementById('variationsList');
+    variationsList.innerHTML = '';
+    variations.forEach(v => {
+      const tag = document.createElement('span');
+      tag.className = 'variation-tag';
+      tag.textContent = v.trim();
+      variationsList.appendChild(tag);
+    });
+
+    // Show product detail section
+    productDetail.classList.remove('hidden');
+    productDetail.classList.add('show');
+  }
+
+  // Thumbnail gallery click
+  const thumbImages = document.querySelectorAll('.thumb-img');
+  thumbImages.forEach(thumb => {
+    thumb.addEventListener('click', function(){
+      document.getElementById('mainProductImg').src = this.dataset.full;
+    });
+  });
 
   // Set initial state
   categoryFilters[0].classList.add('active');

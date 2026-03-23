@@ -5,6 +5,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>MKEL3 Properties — Inquiries</title>
 	<link rel="stylesheet" href="../css/styles.css">
+	<style>
+		@media (max-width: 900px) {
+			.faq-grid {
+				grid-template-columns: 1fr !important;
+			}
+		}
+		
+		@media (max-width: 600px) {
+			.faq-grid h2 {
+				font-size: 20px !important;
+			}
+			
+			.faq-grid .details {
+				padding: 14px !important;
+				margin-bottom: 12px !important;
+			}
+			
+			.faq-grid .details p {
+				font-size: 12px !important;
+			}
+		}
+	</style>
 </head>
 <body>
 	<header class="site-header">
@@ -20,27 +42,111 @@
 	<div class="page-wrap">
 		<aside class="sidebar">
 			<div class="logo">
-				<img src="https://i.imgur.com/0KXQbQq.png" alt="Agent logo" />
+				<img src="../images/logo1.jpg" alt="Agent logo" />
 			</div>
 		</aside>
 
 		<main class="content">
-			<section style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+			<section style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;" class="faq-grid">
 				<!-- FAQ Section -->
 				<div>
 					<h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
-					<div class="details" style="background: var(--accent); margin-bottom: 20px; min-height: 100px;">Desc 1</div>
-					<div class="details" style="background: var(--accent); margin-bottom: 20px; min-height: 100px;">Desc 2</div>
-					<div class="details" style="background: var(--accent); margin-bottom: 20px; min-height: 100px;">Desc 3</div>
-					<div class="details" style="background: var(--accent); margin-bottom: 20px; min-height: 100px;">Desc 4</div>
+					
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">1. How do I start buying a property?</p>
+						<p style="margin: 0;">First, identify your budget and preferred location. Then, consult with a licensed real estate broker, view available listings, and schedule site visits. Once you find the perfect property, proceed with reservation and required documentation.</p>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">2. What documents do I need?</p>
+						<p style="margin: 0 0 8px 0;"><strong>Typical requirements include:</strong></p>
+						<ul style="margin: 0; padding-left: 20px;">
+							<li>Government-issued ID</li>
+							<li>Proof of income/financial capacity</li>
+							<li>Tax Identification Number (TIN)</li>
+							<li>Reservation agreement</li>
+							<li>Bank statements and proof of funds</li>
+						</ul>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">3. Are installment plans available?</p>
+						<p style="margin: 0;">Yes! Many properties offer flexible installment plans. Terms vary by developer and property type, typically ranging from 5-20 years. Bank financing options are also available for qualified buyers.</p>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">4. How do I verify a property is legitimate?</p>
+						<p style="margin: 0 0 8px 0;"><strong>Always verify:</strong></p>
+						<ul style="margin: 0; padding-left: 20px;">
+							<li>Transfer Certificate of Title (TCT) authenticity</li>
+							<li>Developer's credentials and track record</li>
+							<li>Tax declarations and payment history</li>
+							<li>Licensed broker accreditation</li>
+							<li>Property location survey and contracts</li>
+						</ul>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">5. What are the hidden costs in buying property?</p>
+						<p style="margin: 0 0 8px 0;"><strong>Budget for these additional expenses:</strong></p>
+						<ul style="margin: 0; padding-left: 20px;">
+							<li>Broker's commission (typically 3-5%)</li>
+							<li>Transfer tax and registration fees</li>
+							<li>Notarial fees and documentary stamps</li>
+							<li>Property taxes and utility deposits</li>
+							<li>Home inspection and survey costs</li>
+						</ul>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">6. Can I get a home loan easily?</p>
+						<p style="margin: 0;">Yes, major banks and financing institutions offer competitive mortgage packages. Most require 20-30% downpayment and monthly income at least 3-5 times the monthly amortization. Pre-approval strengthens your negotiating position.</p>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">7. What's the best time to buy property?</p>
+						<p style="margin: 0;">Property is generally a long-term investment. The best time depends on: your financial readiness, market conditions, available inventory, and personal circumstances. Consult with me to find your ideal timing and property match.</p>
+					</div>
+
+					<div class="details" style="background: var(--accent); margin-bottom: 20px; padding: 20px; border-radius: 4px;">
+						<p style="font-weight: 700; margin: 0 0 8px 0; color: #5b8c56;">8. What should I know before signing contracts?</p>
+						<p style="margin: 0 0 8px 0;"><strong>Essential due diligence:</strong></p>
+						<ul style="margin: 0; padding-left: 20px;">
+							<li>Read all terms and conditions carefully</li>
+							<li>Understand payment schedule and penalties</li>
+							<li>Verify cancellation and refund policies</li>
+							<li>Confirm warranty and after-sales service</li>
+							<li>Have a lawyer review all documents</li>
+						</ul>
+					</div>
 				</div>
 
 				<!-- Send a Message Section -->
 				<div>
-					<h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #fff;">Send a Message</h2>
-					<div class="details" style="background: var(--accent); text-align: center; padding: 40px; min-height: 100px; display: flex; flex-direction: column; justify-content: center; gap: 12px;">
-						<p style="font-weight: 700; font-size: 18px; margin: 0;">09398173858</p>
-						<p style="margin: 0;">charityabellar.broker@gmail.com</p>
+					<h2 style="font-size: 28px; font-weight: 700; margin-bottom: 20px; color: #fff;">Let's Help You Find Your Perfect Property!</h2>
+					<div class="details" style="background: var(--accent); text-align: center; padding: 30px; display: flex; flex-direction: column; justify-content: center; gap: 18px; border-radius: 4px;">
+						<div style="border-bottom: 2px solid #5b8c56; padding-bottom: 15px;">
+							<p style="font-weight: 700; font-size: 20px; margin: 0; color: #3b3b3b;">Charity L. Abellar</p>
+							<p style="margin: 6px 0 0 0; color: #5b8c56; font-weight: 600;">Licensed Real Estate Broker</p>
+							<p style="margin: 4px 0 0 0; font-size: 13px; color: #666;">PRC License No. 0007192</p>
+						</div>
+
+						<div style="background: #f9f9f9; padding: 16px; border-radius: 4px;">
+							<p style="font-weight: 600; margin: 0 0 8px 0; color: #3b3b3b;">📞 Direct Contact</p>
+							<p style="margin: 0; font-size: 18px; color: #5b8c56;"><strong>09398173858</strong></p>
+							
+							<p style="font-weight: 600; margin: 12px 0 8px 0; color: #3b3b3b;">📧 Email</p>
+							<p style="margin: 0; color: #3b3b3b;">charityabellar.broker@gmail.com</p>
+						</div>
+
+						<div style="background: #e8f4e8; padding: 12px; border-radius: 4px; border-left: 4px solid #5b8c56;">
+							<p style="margin: 0; font-size: 14px; color: #3b3b3b;"><strong>Available for:</strong> Property consultations, site visits, market analysis, and investment guidance</p>
+						</div>
+
+						<p style="font-weight: 700; font-size: 16px; margin: 10px 0 0 0; color: #3b3b3b;">Ready to Start Your Real Estate Journey?</p>
+						<p style="font-size: 14px; margin: 0; color: #666;">Send a message now to explore available properties, discuss investment opportunities, and receive personalized guidance.</p>
+
+						<p style="font-style: italic; margin: 12px 0 0 0; color: #5b8c56; font-weight: 700;">Building Trust, Creating Opportunities, and Continuing a Legacy in Real Estate.</p>
 					</div>
 				</div>
 			</section>
