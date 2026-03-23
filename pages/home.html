@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MKEL3 Properties</title>
+  <link rel="stylesheet" href="../css/styles.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     /* Modal Styles */
@@ -126,16 +127,18 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
 <!-- Navbar -->
-<nav class="bg-[#e9e3dc] shadow py-3 px-4 flex justify-center flex-wrap gap-3 md:gap-8 font-semibold tracking-wide text-xs md:text-sm">
-  <a href="home.html" class="hover:underline whitespace-nowrap">HOME</a>
-  <a href="properties.html" class="hover:underline whitespace-nowrap">PROPERTIES</a>
-  <a href="inquiries.html" class="hover:underline whitespace-nowrap">INQUIRIES</a>
-  <a href="appointment.html" class="hover:underline whitespace-nowrap">BOOK</a>
-  <a href="about.html" class="hover:underline whitespace-nowrap">ABOUT</a>
-</nav>
+<header class="site-header">
+  <nav class="nav">
+    <a class="nav-link" href="home.html">HOME</a>
+    <a class="nav-link" href="properties.html">PROPERTIES</a>
+    <a class="nav-link" href="inquiries.html">INQUIRIES</a>
+    <a class="nav-link" href="appointment.html">BOOK AN APPOINTMENT</a>
+    <a class="nav-link" href="about.html">ABOUT ME</a>
+  </nav>
+</header>
 
 <!-- Hero Section -->
 <section id="home" class="relative h-[70vh] md:h-[85vh] flex items-center justify-center overflow-hidden">
@@ -148,8 +151,10 @@
 
   <!-- Content -->
   <div class="relative z-10 text-center text-white max-w-xl px-4">
-    <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 md:mb-4">Charity Abellar</h1>
-    <p class="uppercase tracking-widest text-xs sm:text-sm md:text-base mb-4 md:mb-6">Real Estate Broker</p>
+    <!-- Logo -->
+    <div class="mb-4 md:mb-6 flex justify-center">
+      <img src="../images/logo1.jpg" alt="MKEL3 Properties Logo" class="w-43 h-auto object-cover rounded-lg shadow-lg" />
+    </div>
 
     <button class="bg-[#e9e3dc] text-gray-800 px-4 sm:px-6 md:px-8 py-2 md:py-3 rounded-full font-semibold shadow hover:scale-105 transition text-xs sm:text-sm md:text-base">
        <a href="properties.html">Browse Properties →</a>
@@ -168,7 +173,7 @@
 
 <!-- Footer -->
 <footer class="bg-gray-800 text-white text-center p-6 mt-8">
-  <p class="mb-3">Contact: +63 912 345 6789 | charityabellar.broker@gmail.com</p>
+  <p class="mb-3">Contact: +63 912 345 6789 | emailhere@gmail.com</p>
   <div class="flex justify-center gap-6 flex-wrap text-sm">
     <button onclick="openModal('terms')" class="text-blue-400 hover:text-blue-300 underline cursor-pointer">Terms & Conditions</button>
     <span class="text-gray-500">|</span>
