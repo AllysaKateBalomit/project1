@@ -8,6 +8,14 @@ document.addEventListener('DOMContentLoaded', function(){
   const productDetail = document.getElementById('productDetail');
   const closeDetailBtn = document.getElementById('closeDetail');
   
+  // Mapping of property IDs to folder names
+  const propertyFolders = {
+    'la_alegria': 'La_Alegria',
+    'sitari': 'Sitari',
+    'northfield': 'Northfield_Subdivision',
+    'st_francis': 'Natures_Village'
+  };
+  
   let currentIndex = 0;
   let allItems = Array.from(propertyItems);
   let visibleItems = [...allItems];
@@ -86,6 +94,10 @@ document.addEventListener('DOMContentLoaded', function(){
     const description = item.dataset.description;
     const variations = item.dataset.variations.split('|');
     const img = item.querySelector('img').src;
+    const propertyId = item.dataset.id;
+    const folderName = propertyFolders[propertyId];
+    const fileFormat = item.dataset.format || 'jpg';
+    const imageCount = parseInt(item.dataset.count) || 4;
 
     // Populate product detail
     document.getElementById('productName').textContent = name;
@@ -111,6 +123,22 @@ document.addEventListener('DOMContentLoaded', function(){
       tag.textContent = v.trim();
       variationsList.appendChild(tag);
     });
+
+    // Load thumbnail images from property folder with correct format
+    const thumbImages = document.querySelectorAll('.thumb-img');
+    if(folderName) {
+      thumbImages.forEach((thumb, index) => {
+        if(index < imageCount) {
+          const imgNum = index + 1;
+          const imagePath = `../images/propertiesImages/${folderName}/${imgNum}.${fileFormat}`;
+          thumb.src = imagePath;
+          thumb.dataset.full = imagePath;
+          thumb.alt = `${name} - Angle ${imgNum}`;
+        } else {
+          thumb.style.display = 'none';
+        }
+      });
+    }
 
     // Show product detail section
     productDetail.classList.remove('hidden');
