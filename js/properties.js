@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', function(){
     'la_alegria': 'La_Alegria',
     'sitari': 'Sitari',
     'northfield': 'Northfield_Subdivision',
-    'st_francis': 'Natures_Village'
+    'st_francis': 'Natures_Village',
+    'centerville': 'Housing',
+    'centerpoint': 'Housing'
   };
   
   let currentIndex = 0;
@@ -126,9 +128,12 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Load thumbnail images from property folder with correct format
     const thumbImages = document.querySelectorAll('.thumb-img');
+    const isHousing = item.dataset.ishousing === 'true';
     if(folderName) {
       thumbImages.forEach((thumb, index) => {
-        if(index < imageCount) {
+        if(isHousing) {
+          thumb.style.display = 'none';
+        } else if(index < imageCount) {
           const imgNum = index + 1;
           const imagePath = `../images/propertiesImages/${folderName}/${imgNum}.${fileFormat}`;
           thumb.src = imagePath;
