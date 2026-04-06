@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', function(){
   const thumbNextBtn = document.getElementById('thumbNextBtn');
   const productDetail = document.getElementById('productDetail');
   const closeDetailBtn = document.getElementById('closeDetail');
+  const imageLightbox = document.getElementById('imageLightbox');
+  const closeLightboxBtn = document.getElementById('closeLightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const mainProductImg = document.getElementById('mainProductImg');
   
   // Mapping of property IDs to folder names
   const propertyFolders = {
@@ -84,6 +88,25 @@ document.addEventListener('DOMContentLoaded', function(){
     if(e.target === productDetail){
       productDetail.classList.remove('show');
       productDetail.classList.add('hidden');
+    }
+  });
+
+  // Lightbox functionality
+  mainProductImg && mainProductImg.addEventListener('click', () => {
+    lightboxImg.src = mainProductImg.src;
+    imageLightbox.classList.remove('hidden');
+    imageLightbox.classList.add('show');
+  });
+
+  closeLightboxBtn && closeLightboxBtn.addEventListener('click', () => {
+    imageLightbox.classList.remove('show');
+    imageLightbox.classList.add('hidden');
+  });
+
+  imageLightbox && imageLightbox.addEventListener('click', (e) => {
+    if(e.target === imageLightbox){
+      imageLightbox.classList.remove('show');
+      imageLightbox.classList.add('hidden');
     }
   });
 
