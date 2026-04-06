@@ -1,7 +1,7 @@
 /* Basic styles for Properties page - placed in css/styles.css */
 :root{
   --accent:#eeddde; /* beige */
-  --green:#FFC0CB;
+  --green:#5b8c56;
   --text:#3b3b3b;
 }
 *{box-sizing:border-box}
