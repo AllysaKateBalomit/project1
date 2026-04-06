@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function(){
   const categoryFilters = document.querySelectorAll('.cat-item');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
+  const thumbPrevBtn = document.getElementById('thumbPrevBtn');
+  const thumbNextBtn = document.getElementById('thumbNextBtn');
   const productDetail = document.getElementById('productDetail');
   const closeDetailBtn = document.getElementById('closeDetail');
   
@@ -14,14 +16,15 @@ document.addEventListener('DOMContentLoaded', function(){
     'sitari': 'Sitari',
     'northfield': 'Northfield_Subdivision',
     'st_francis': 'Natures_Village',
-    'centerville': 'Housing',
-    'centerpoint': 'Housing'
+    'centerville': 'Housing/Centville',
+    'centerpoint': 'Housing/Centerpoint'
   };
   
   let currentIndex = 0;
   let allItems = Array.from(propertyItems);
   let visibleItems = [...allItems];
   let currentFilter = 'all';
+  let thumbCarouselIndex = 0; // Track thumbnail carousel position
 
   // Filter functionality
   categoryFilters.forEach(filter => {
@@ -128,12 +131,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
     // Load thumbnail images from property folder with correct format
     const thumbImages = document.querySelectorAll('.thumb-img');
-    const isHousing = item.dataset.ishousing === 'true';
     if(folderName) {
       thumbImages.forEach((thumb, index) => {
-        if(isHousing) {
-          thumb.style.display = 'none';
-        } else if(index < imageCount) {
+        if(index < imageCount) {
           const imgNum = index + 1;
           const imagePath = `../images/propertiesImages/${folderName}/${imgNum}.${fileFormat}`;
           thumb.src = imagePath;
@@ -148,6 +148,10 @@ document.addEventListener('DOMContentLoaded', function(){
     // Show product detail section
     productDetail.classList.remove('hidden');
     productDetail.classList.add('show');
+    
+    // Reset thumbnail carousel position
+    thumbCarouselIndex = 0;
+    updateThumbCarousel();
   }
 
   // Thumbnail gallery click
@@ -156,6 +160,41 @@ document.addEventListener('DOMContentLoaded', function(){
     thumb.addEventListener('click', function(){
       document.getElementById('mainProductImg').src = this.dataset.full;
     });
+  });
+
+  // Thumbnail carousel functions
+  function updateThumbCarousel() {
+    const gallery = document.querySelector('.thumbnail-gallery');
+    const thumbImages = document.querySelectorAll('.thumb-img:not([style*="display: none"])');
+    
+    // Hide/show carousel buttons based on image count
+    if(thumbImages.length <= 4) {
+      thumbPrevBtn.style.display = 'none';
+      thumbNextBtn.style.display = 'none';
+    } else {
+      thumbPrevBtn.style.display = 'flex';
+      thumbNextBtn.style.display = 'flex';
+      gallery.style.transform = `translateX(-${thumbCarouselIndex * 110}px)`;
+      
+      // Disable/enable buttons based on position
+      thumbPrevBtn.disabled = thumbCarouselIndex === 0;
+      thumbNextBtn.disabled = thumbCarouselIndex >= thumbImages.length - 4;
+    }
+  }
+
+  thumbPrevBtn && thumbPrevBtn.addEventListener('click', () => {
+    if(thumbCarouselIndex > 0) {
+      thumbCarouselIndex--;
+      updateThumbCarousel();
+    }
+  });
+
+  thumbNextBtn && thumbNextBtn.addEventListener('click', () => {
+    const thumbImages = document.querySelectorAll('.thumb-img:not([style*="display: none"])');
+    if(thumbCarouselIndex < thumbImages.length - 4) {
+      thumbCarouselIndex++;
+      updateThumbCarousel();
+    }
   });
 
   // Set initial state
