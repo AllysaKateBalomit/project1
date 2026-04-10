@@ -15,7 +15,8 @@
 		}
 
 		.form-field input,
-		.form-field textarea {
+		.form-field textarea,
+		.form-field select {
 			width: 100%;
 			padding: 12px;
 			border: 1px solid #ddd;
@@ -23,6 +24,17 @@
 			font-family: Arial, sans-serif;
 			box-sizing: border-box;
 			font-size: 14px;
+		}
+
+		.form-row {
+			display: flex;
+			gap: 18px;
+			margin-bottom: 18px;
+		}
+
+		.form-row .form-field {
+			flex: 1;
+			margin-bottom: 0;
 		}
 
 		.form-field label {
@@ -147,6 +159,11 @@
 				margin-bottom: 14px;
 			}
 
+			.form-row {
+				gap: 14px;
+				margin-bottom: 14px;
+			}
+
 			.confirm-btn {
 				padding: 12px 24px;
 				font-size: 14px;
@@ -175,7 +192,8 @@
 			}
 
 			.form-field input,
-			.form-field textarea {
+			.form-field textarea,
+			.form-field select {
 				padding: 10px;
 				font-size: 13px;
 			}
@@ -183,6 +201,16 @@
 			.form-field label {
 				font-size: 12px;
 				margin-bottom: 6px;
+			}
+
+			.form-row {
+				flex-direction: column;
+				gap: 10px;
+				margin-bottom: 10px;
+			}
+
+			.form-row .form-field {
+				margin-bottom: 0;
 			}
 
 			.confirm-btn {
@@ -240,10 +268,27 @@
 					<input type="email" id="email" name="email" required placeholder="Enter your email address">
 				</div>
 
-				<!-- Appointment Date Field -->
-				<div class="form-field">
-					<label for="date">Set Appointment Date:</label>
-					<input type="date" id="date" name="date" required>
+				<!-- Appointment Date and Time Fields (Side by Side) -->
+				<div class="form-row">
+					<div class="form-field">
+						<label for="date">Set Appointment Date:</label>
+						<input type="date" id="date" name="date" required>
+					</div>
+
+					<div class="form-field">
+						<label for="time">Select Time Slot:</label>
+						<select id="time" name="time" required>
+							<option value="">-- Choose a time --</option>
+							<option value="8:00 AM - 9:00 AM">8:00 AM - 9:00 AM</option>
+							<option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+							<option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+							<option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+							<option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+							<option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+							<option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+							<option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+						</select>
+					</div>
 				</div>
 
 				<!-- Property Selection -->
@@ -289,6 +334,7 @@
 			const contact = document.getElementById('contact').value;
 			const email = document.getElementById('email').value;
 			const date = document.getElementById('date').value;
+			const time = document.getElementById('time').value;
 			const property = document.querySelector('input[name="property"]:checked').value;
 
 			// Show success message
@@ -307,6 +353,7 @@
 				contact: contact,
 				email: email,
 				date: date,
+				time: time,
 				property: property,
 				timestamp: new Date()
 			});
