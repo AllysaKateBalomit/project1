@@ -14,6 +14,7 @@
 			<a class="nav-link" href="inquiries.html">INQUIRIES</a>
 			<a class="nav-link" href="appointment.html">BOOK AN APPOINTMENT</a>
 			<a class="nav-link" href="about.html">ABOUT ME</a>
+			<button id="wishlistBtn" class="nav-wishlist-btn" title="View Wishlist"><img src="../images/heart-full.png" alt="Wishlist" /></button>
 		</nav>
 	</header>
 
@@ -143,6 +144,7 @@
 							</div>
 
 							<div class="product-actions">
+							<button id="wishlistToggle" class="wishlist-heart-btn" title="Add to Wishlist"><img src="../images/heart-hollow.png" alt="Add to Wishlist" class="heart-icon" /></button>
 								<a class="inquire-btn" href="inquiries.html">Inquire Now →</a>
 							</div>
 						</div>
@@ -151,14 +153,25 @@
 			</section>
 
 			<a class="inquire-btn" href="inquiries.html?property=Property%20Address">Inquire →</a>
-
-			<!-- Image Lightbox -->
-			<section id="imageLightbox" class="image-lightbox hidden">
-				<button id="closeLightbox" class="close-lightbox">✕</button>
-				<img id="lightboxImg" src="" alt="Expanded Product Image" />
-			</section>
 		</main>
 	</div>
+
+	<!-- Image Lightbox -->
+	<section id="imageLightbox" class="image-lightbox hidden">
+		<button id="closeLightbox" class="close-lightbox">✕</button>
+		<img id="lightboxImg" src="" alt="Expanded Product Image" />
+	</section>
+
+	<!-- Wishlist Modal -->
+	<section id="wishlistModal" class="wishlist-modal hidden">
+		<div class="wishlist-modal-content">
+			<button id="closeWishlist" class="close-wishlist">✕</button>
+			<h2>My Wishlist</h2>
+			<div id="wishlistItems" class="wishlist-items-container">
+				<!-- Wishlist items will be populated here -->
+			</div>
+		</div>
+	</section>
 
 
 	<script src="../js/properties.js"></script>

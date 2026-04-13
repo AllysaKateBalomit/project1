@@ -36,6 +36,7 @@
 			<a class="nav-link active" href="inquiries.html">INQUIRIES</a>
 			<a class="nav-link" href="appointment.html">BOOK AN APPOINTMENT</a>
 			<a class="nav-link" href="about.html">ABOUT ME</a>
+			<button id="wishlistBtn" class="nav-wishlist-btn" title="View Wishlist"><img src="../images/heart-full.png" alt="Wishlist" /></button>
 		</nav>
 	</header>
 
@@ -153,6 +154,16 @@
 		</main>
 	</div>
 
-	<script src="../js/properties.js"></script>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){
+			const wishlistBtn = document.getElementById('wishlistBtn');
+			if(wishlistBtn) {
+				wishlistBtn.onclick = function(e) {
+					e.preventDefault();
+					window.location.href = 'properties.html';
+				};
+			}
+		});
+	</script>
 </body>
 </html>
