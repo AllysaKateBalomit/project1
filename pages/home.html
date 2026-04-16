@@ -138,6 +138,7 @@
     <a class="nav-link" href="appointment.html">BOOK AN APPOINTMENT</a>
     <a class="nav-link" href="about.html">ABOUT ME</a>
     <button id="wishlistBtn" class="nav-wishlist-btn" title="View Wishlist" onclick="window.location.href='properties.html'"><img src="../images/heart-full.png" alt="Wishlist" /></button>
+    <div id="accountBtnContainer"></div>
   </nav>
 </header>
 
@@ -336,5 +337,33 @@
       const modalId = modalType === 'terms' ? 'termsModal' : 'privacyModal';
       document.getElementById(modalId).classList.remove('show');
     }
+  }
+
+  // Initialize account button
+  function initAccountButton() {
+    const container = document.getElementById('accountBtnContainer');
+    const currentUser = localStorage.getItem('currentUser');
+    
+    if (currentUser) {
+      const user = JSON.parse(currentUser);
+      const username = user.username || user.email.split('@')[0];
+      const initial = username.charAt(0).toUpperCase();
+      
+      container.innerHTML = `
+        <a href="account.html" class="nav-account-btn">
+          <span class="nav-account-avatar">${initial}</span>
+          <span>${username}</span>
+        </a>
+      `;
+    } else {
+      container.innerHTML = `<a href="login.html" class="nav-account-btn">Login</a>`;
+    }
+  }
+
+  // Call on page load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAccountButton);
+  } else {
+    initAccountButton();
   }
 </script>

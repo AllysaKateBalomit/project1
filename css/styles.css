@@ -14,6 +14,10 @@ body{margin:0;font-family:Arial, Helvetica, sans-serif;color:var(--text);backgro
 .nav-wishlist-btn img{width:24px;height:24px;object-fit:contain}
 .nav-wishlist-btn:hover{transform:scale(1.15)}
 
+.nav-account-btn{background:var(--green);color:#fff;border:none;cursor:pointer;padding:8px 16px;border-radius:20px;font-weight:600;font-size:13px;transition:all 0.3s;display:flex;align-items:center;gap:8px;text-decoration:none;margin-left:12px}
+.nav-account-btn:hover{background:#4a6d45}
+.nav-account-avatar{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,0.3);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px}
+
 .page-wrap{max-width:1200px;margin:0 auto;display:flex;gap:30px;padding:30px;position:relative;z-index:1}
 .sidebar{width:220px;padding:10px;color:#fff}
 .sidebar .category img{width:100%;display:block;border-radius:6px;box-shadow:4px 6px 18px rgba(0,0,0,.35)}
